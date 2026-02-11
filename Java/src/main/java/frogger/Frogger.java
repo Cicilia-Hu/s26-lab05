@@ -13,19 +13,21 @@ public class Frogger {
     
     // Field for task 2. Anything to add/change?
     private final Records records;
-    private String firstName, lastName, phoneNumber, zipCode, state, gender;
+    private final FroggerID id;
+    // private String firstName, lastName, phoneNumber, zipCode, state, gender;
 
     public Frogger(Road road, int position, Records records, String firstName, String lastName, String phoneNumber,
     String zipCode, String state, String gender) {
         this.road = road;
         this.position = position;
         this.records = records;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.phoneNumber = phoneNumber;
-        this.zipCode = zipCode;
-        this.state = state;
-        this.gender = gender;
+        this.id = new FroggerID(firstName, lastName, phoneNumber, zipCode, state, gender);
+        // this.firstName = firstName;
+        // this.lastName = lastName;
+        // this.phoneNumber = phoneNumber;
+        // this.zipCode = zipCode;
+        // this.state = state;
+        // this.gender = gender;
     }
 
     /**
@@ -60,9 +62,12 @@ public class Frogger {
      * 
      * @return true if record successful, else false.
      */
+    // public boolean recordMyself() {
+    //   boolean success = records.addRecord(firstName, lastName, phoneNumber, zipCode, state, gender);
+    //   return success;
+    // }
     public boolean recordMyself() {
-      boolean success = records.addRecord(firstName, lastName, phoneNumber, zipCode, state, gender);
-      return success;
+        return records.addRecord(id);
     }
 
 }
